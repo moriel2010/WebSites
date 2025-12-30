@@ -4,20 +4,45 @@
 
 <html>
 <head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder id="head" runat="server">
+    <title>רק בארסה</title>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
+    <style>
+        img.main {
+            width: 100px;
+            height: 50px;
+        }
+    </style>
 </head>
 <body>
-    <h1>master start</h1>
-    <form id="form1" runat="server">
-    <div>
-        test
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    </div>
-    </form>
-     <h1>master start</h1>
+    <center>
+        <table border="1" style="width: 80%; height: 800px; background-color: beige">
+            <tr style=height: 70px">
+                <td style="text-align: center">
+                    <font style="color:black; font-size: 50px">האתר שלי</font>
+                </td>
+            </tr>
+            <tr height="150px">
+                <td style="text-align: center">
+                    <a href="HomePage.aspx"><img src="Image/HomePage.png" class="main"/></a>
+                    <a href="Kefel.aspx">כפל</a>
+                    <a href="enrollmentPage.aspx"><img src="Image/enrollmentPage.png" class="main"/></a>
+                    <a href="galleryPage.aspx"><img src="Image/galleryPage.png" class="main"/></a>
+                    <a href="entryPage.aspx"><img src="Image/entryPage.png" class="main"/></a>
+                    <a href="managementPage.aspx"><img src="Image/managementPage.png" class="main"/></a>
+                    <a href="SearchPage.aspx"><img src="Image/SearchPage.png" class="main"/></a>
+                    <a href="exitPage.aspx"><img src="image/exitPage.png" class="main" /></a>
+                    <a href="UpdateDetailsPage.aspx"><img src="Image/UpdateDetailsPage.png" class="main"/></a>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+        </table>
+     </center>
+
 </body>
 </html>
