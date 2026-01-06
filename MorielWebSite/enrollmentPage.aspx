@@ -7,19 +7,21 @@
     <form name="formPage" method="post" runat="server">
         שם פרטי: <input type="text" name="firstname" id="firstname" placeholder="example">
         <br />
+         טלפון: <input type="tel" name="phone" id="phone" placeholder="example">
+        <br />
         שחקן אהוב: 
         <br />
-        הנדסת תוכנה<input type="checkbox" name="check2" checked value="ניימאר" id="check_1"><br />
-        מתמטיקה: <input type="checkbox" name="check2" value=מסי" id="check_2"><br />
-        מדעי המחשב<input type="checkbox" name="check2" value="מדמח" checked id="check_3"><br />
-        ספורט: <input type="checkbox" name="check2" value="ספורט" id="check_4">
+        ניימאר<input type="checkbox" name="check2"  value="ניימאר" id="check_1"><br />
+        מסי: <input type="checkbox" name="check2" value="מסי" id="check_2"><br />
+        רונאלדיניו<input type="checkbox" name="check2" value="רונאלדיניו"  id="check_3"><br />
+        סוארס: <input type="checkbox" name="check2" value="סוארס" id="check_4">
          <br />
-        בעל חיים אהוב: 
+        התקופה הכי טובה של ברצלונה: 
         <br />
-        כלב<input type="radio" name="radio1" checked value="כלב" id="radio_1"><br />
-        חתול<input type="radio" name="radio1" value="חתול" id="radio_2"><br />
-        סוס<input type="radio" name="radio1" value="סוס" checked id="radio_3"><br />
-        ארנב<input type="radio" name="radio1" value="ארנב" id="radio_4"><br />
+        2020<input type="radio" name="radio1" value="2020" id="radio_1"><br />
+        2022<input type="radio" name="radio1" value="2022" id="radio_2"><br />
+        2007<input type="radio" name="radio1" value="2007"  id="radio_3"><br />
+        2012<input type="radio" name="radio1" value="2012" id="radio_4"><br />
         תשובה פתוחה:
         <textarea rows="5" cols="20" name="textarea1" id="textarea1" placeholder="הכנס מלל חופשי"></textarea>
         <br />
@@ -34,10 +36,19 @@
     </form>
    </hr>
     <%=name %>
-    <%=age %>
-    <%= fav_team %>
-    <%= message %>
+    <br/>
+    <br/>
     <%= phone %>
+
+    <br/>
+    <br/>
+    <%= fav_player %>
+    <br/>
+    <br/>
+    <%= prime_team %>
+    <br/>
+    <br/>
+      <%=age %>
 
 </asp:Content>
 

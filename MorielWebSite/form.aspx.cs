@@ -16,11 +16,12 @@ public partial class form : System.Web.UI.Page
     {
         if (IsPostBack)
         {
-            name = "name" + Request.Form["text"];
-            age = "age" + Request.Form["age"];
+            name = "name" + Request.Form["firstname"];
+            phone = "phone" + Request.Form["phone"];
             fav_team = "fav_team" + Request.Form["radio"];
             message = "message" + Request.Form["message"];
             phone = "phone" + Request.Form["phone"];
+            age = "age" + Request.Form["age"];
         }
     }
 }
