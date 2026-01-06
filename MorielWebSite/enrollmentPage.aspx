@@ -39,7 +39,6 @@
     <br/>
     <br/>
     <%= phone %>
-
     <br/>
     <br/>
     <%= fav_player %>

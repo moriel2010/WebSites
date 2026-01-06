@@ -9,19 +9,18 @@ public partial class form : System.Web.UI.Page
 {
     public string name;
     public string age;
-    public string fav_team;
-    public string message;
+    public string fav_professions;
+    public string fav_animal;
     public string phone;
     protected void Page_Load(object sender, EventArgs e)
     {
         if (IsPostBack)
         {
-            name = "name" + Request.Form["firstname"];
-            phone = "phone" + Request.Form["phone"];
-            fav_team = "fav_team" + Request.Form["radio"];
-            message = "message" + Request.Form["message"];
-            phone = "phone" + Request.Form["phone"];
-            age = "age" + Request.Form["age"];
+            name = "name:" + Request.Form["firstname"];
+            phone = "phone:" + Request.Form["phone"];
+            fav_professions = "fav_professions:" + Request.Form["check2"];
+            fav_animal = "fav_animal:" + Request.Form["radio1"];
+            age = "age:" + Request.Form["age"];
         }
     }
 }
