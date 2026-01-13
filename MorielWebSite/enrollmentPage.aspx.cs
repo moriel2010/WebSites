@@ -12,6 +12,7 @@ public partial class enrollmentPage : System.Web.UI.Page
     public string age;
     public string fav_player;
     public string prime_team;
+    public string open_answer;
     public string phone;
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -21,7 +22,8 @@ public partial class enrollmentPage : System.Web.UI.Page
          phone = "phone:" + Request.Form["phone"];
         fav_player = "fav_player:" + Request.Form["check2"];
         prime_team = "prime_team:" + Request.Form["radio1"];
-         age = "age:" + Request.Form["age"];
+         open_answer = "open_answer:" + Request.Form["textarea1"];
+            age = "age:" + Request.Form["age"];
         }
     }
 }

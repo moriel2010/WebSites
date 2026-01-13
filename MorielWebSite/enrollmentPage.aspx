@@ -45,6 +45,9 @@
     <br/>
     <br/>
     <%= prime_team %>
+    <br />
+    <br />
+    <%= open_answer %>
     <br/>
     <br/>
       <%=age %>
