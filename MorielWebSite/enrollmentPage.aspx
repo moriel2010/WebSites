@@ -9,19 +9,23 @@
         <br />
          טלפון: <input type="tel" name="phone" id="phone" placeholder="example">
         <br />
+         אימייל: <input type="email" name="email" id="email" placeholder="example">
+        <br />
+         סיסמה: <input type="password" name="password" id="password" placeholder="example">
+        <br />
         שחקן אהוב: 
         <br />
         ניימאר<input type="checkbox" name="check2"  value="ניימאר" id="check_1"><br />
         מסי: <input type="checkbox" name="check2" value="מסי" id="check_2"><br />
-        רונאלדיניו<input type="checkbox" name="check2" value="רונאלדיניו"  id="check_3"><br />
+        רונאלדו<input type="checkbox" name="check2" value="רונאלדיניו"  id="check_3"><br />
         סוארס: <input type="checkbox" name="check2" value="סוארס" id="check_4">
          <br />
-        התקופה הכי טובה של ברצלונה: 
+        הקבוצה האהובה עליך: 
         <br />
-        2020<input type="radio" name="radio1" value="2020" id="radio_1"><br />
-        2022<input type="radio" name="radio1" value="2022" id="radio_2"><br />
-        2007<input type="radio" name="radio1" value="2007"  id="radio_3"><br />
-        2012<input type="radio" name="radio1" value="2012" id="radio_4"><br />
+        ברצלונה<input type="radio" name="radio1"  value= " ברצלונה" id="radio_1"><br />
+        ריאל מדריד<input type="radio" name="radio1"  value= "ריאל מדריד " id="radio_2"><br />
+        ארסנל<input type="radio" name="radio1"  value= "ארסנל "  id="radio_3"><br />
+        מנצ'סטר סיטי<input type="radio"  name= "מנצ'סטר סיטי " value="2012" id="radio_4"><br />
         תשובה פתוחה:
         <textarea rows="5" cols="20" name="textarea1" id="textarea1" placeholder="הכנס מלל חופשי"></textarea>
         <br />
@@ -41,16 +45,25 @@
     <%= phone %>
     <br/>
     <br/>
+    <%=email %>
+    <br/>
+    <br/>
+    <%=password %>
+    <br/>
+    <br/>
     <%= fav_player %>
     <br/>
     <br/>
-    <%= prime_team %>
+    <%= fav_team %>
     <br />
     <br />
     <%= open_answer %>
     <br/>
     <br/>
       <%=age %>
+    <br />
+    <br />
+    <%=s %>
 
 </asp:Content>
 

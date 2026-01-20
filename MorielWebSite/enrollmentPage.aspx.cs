@@ -11,19 +11,30 @@ public partial class enrollmentPage : System.Web.UI.Page
     public string name;
     public string age;
     public string fav_player;
-    public string prime_team;
+    public string fav_team;
+    public string email;
+    public string password;
     public string open_answer;
     public string phone;
+    public string s;
     protected void Page_Load(object sender, EventArgs e)
     {
         if (IsPostBack)
         { 
-        name = "name:" + Request.Form["firstname"];
-         phone = "phone:" + Request.Form["phone"];
-        fav_player = "fav_player:" + Request.Form["check2"];
-        prime_team = "prime_team:" + Request.Form["radio1"];
-         open_answer = "open_answer:" + Request.Form["textarea1"];
-            age = "age:" + Request.Form["age"];
+
+            string name = Request.Form["firstname"];
+            string phone = Request.Form["phone"];
+            string fav_player = Request.Form["fav_player"];
+            string fav_team = Request.Form["fav_team"];
+            string email = Request.Form["email"];
+            string password = Request.Form["password"];
+            string open_answer = Request.Form["open_answer"];
+            string age = Request.Form["age"];
+
+            string str = "insert into tUsers values(N'" + name + "',' + phone + ," + fav_player + "',N'" + fav_team + "',N'" + email + "',N'" + password + "',N'" + open_answer + "', + age + )";
+            MyAdoHelper.DoQuery("MyDB.mdf", str);
+            
+            s = "נרשמת בהצלחה!";
         }
     }
 }
