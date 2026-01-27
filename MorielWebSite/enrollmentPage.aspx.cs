@@ -24,14 +24,25 @@ public partial class enrollmentPage : System.Web.UI.Page
 
             string name = Request.Form["firstname"];
             string phone = Request.Form["phone"];
-            string fav_player = Request.Form["fav_player"];
+            string fav_player = Request.Form["check2"];
             string fav_team = Request.Form["fav_team"];
             string email = Request.Form["email"];
             string password = Request.Form["password"];
             string open_answer = Request.Form["open_answer"];
             string age = Request.Form["age"];
 
-            string str = "insert into tUsers values(N'" + name + "',' + phone + ," + fav_player + "',N'" + fav_team + "',N'" + email + "',N'" + password + "',N'" + open_answer + "', + age + )";
+            string str =
+    "INSERT INTO tUsers VALUES (" +
+       "N'" + name + "'," +
+       "N'" + phone + "'," +
+       "N'" + fav_player + "'," +
+        "N'" + fav_team + "'," +
+        "N'" + email + "'," +
+        "N'" + password + "'," +
+        "N'" + open_answer + "'," +
+        "N'" + age + "'" +
+        ")";
+
             MyAdoHelper.DoQuery("MyDB.mdf", str);
             
             s = "נרשמת בהצלחה!";

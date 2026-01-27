@@ -9,7 +9,7 @@
         <br />
          טלפון: <input type="tel" name="phone" id="phone" placeholder="example">
         <br />
-         אימייל: <input type="email" name="email" id="email" placeholder="example">
+         אימייל: <input type="text" name="email" id="email" placeholder="example">
         <br />
          סיסמה: <input type="password" name="password" id="password" placeholder="example">
         <br />
@@ -33,7 +33,7 @@
             <option value="0">בחר גיל</option>
             <option value="15">15</option>
             <option value="16">16</option>
-            <option value="17">17</option>
+            <option value="17">17</option>      
         </select>
         <br />
         <input id="Submit1" type="submit" value="שלח" />
