@@ -20,15 +20,15 @@ public partial class enrollmentPage : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         if (IsPostBack)
-        { 
+        {
 
             string name = Request.Form["firstname"];
             string phone = Request.Form["phone"];
             string fav_player = Request.Form["check2"];
-            string fav_team = Request.Form["fav_team"];
+            string fav_team = Request.Form["radio1"];
             string email = Request.Form["email"];
             string password = Request.Form["password"];
-            string open_answer = Request.Form["open_answer"];
+            string open_answer = Request.Form["textarea1"];
             string age = Request.Form["age"];
 
             string str =
@@ -37,14 +37,15 @@ public partial class enrollmentPage : System.Web.UI.Page
        "N'" + phone + "'," +
        "N'" + fav_player + "'," +
         "N'" + fav_team + "'," +
+                "N'" + open_answer + "'," +
+
         "N'" + email + "'," +
         "N'" + password + "'," +
-        "N'" + open_answer + "'," +
         "N'" + age + "'" +
         ")";
 
             MyAdoHelper.DoQuery("MyDB.mdf", str);
-            
+
             s = "נרשמת בהצלחה!";
         }
     }

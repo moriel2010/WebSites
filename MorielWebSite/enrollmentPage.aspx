@@ -25,7 +25,7 @@
         ברצלונה<input type="radio" name="radio1"  value= " ברצלונה" id="radio_1"><br />
         ריאל מדריד<input type="radio" name="radio1"  value= "ריאל מדריד " id="radio_2"><br />
         ארסנל<input type="radio" name="radio1"  value= "ארסנל "  id="radio_3"><br />
-        מנצ'סטר סיטי<input type="radio"  name= "מנצ'סטר סיטי " value="2012" id="radio_4"><br />
+        מנצ'סטר סיטי<input type="radio"  name= "radio1" value="2012" id="radio_4"><br />
         תשובה פתוחה:
         <textarea rows="5" cols="20" name="textarea1" id="textarea1" placeholder="הכנס מלל חופשי"></textarea>
         <br />
