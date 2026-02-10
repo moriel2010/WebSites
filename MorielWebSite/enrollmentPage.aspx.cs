@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 
 public partial class enrollmentPage : System.Web.UI.Page
 {
+    public string strResult = "";
     public string name;
     public string age;
     public string fav_player;
@@ -31,7 +32,18 @@ public partial class enrollmentPage : System.Web.UI.Page
             string open_answer = Request.Form["textarea1"];
             string age = Request.Form["age"];
 
-            string str =
+
+            string sqlSelect =
+                "SELECT * FROM tUsers " +
+                "WHERE email = N'" + email + "'";
+            bool userExists = MyAdoHelper.IsExist(sqlSelect);
+            if (userExists)
+                strResult = "מייל שהוכנס קיים במערכת, הכנס מייל חדש.";
+            else
+            {
+
+
+                string str =
     "INSERT INTO tUsers VALUES (" +
        "N'" + name + "'," +
        "N'" + phone + "'," +
@@ -44,9 +56,10 @@ public partial class enrollmentPage : System.Web.UI.Page
         "N'" + age + "'" +
         ")";
 
-            MyAdoHelper.DoQuery("MyDB.mdf", str);
+                MyAdoHelper.DoQuery("MyDB.mdf", str);
 
-            s = "נרשמת בהצלחה!";
+                s = "נרשמת בהצלחה!";
+            }
         }
     }
 }
