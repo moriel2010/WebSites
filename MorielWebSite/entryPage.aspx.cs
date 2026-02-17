@@ -26,16 +26,18 @@ public partial class entryPage : System.Web.UI.Page
                 "WHERE email = N'" + email + "' " +
                 "AND password = N'" + password + "'";
 
-            bool userExists = MyAdoHelper.IsExist(sqlSelect);
+            bool isExists = MyAdoHelper.IsExist(sqlSelect);
 
-            if (userExists)
+            if (isExists)
             {
                     Response.Redirect("HomePage.aspx");
-                   
-            }
-            else
+                    stResult = " רשום";
+
+
+                }
+                else
             {
-                    stResult = "משתמש רשום";
+                    stResult = " אורח";
                 }
             }
         }
