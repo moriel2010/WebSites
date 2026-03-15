@@ -12,12 +12,10 @@ public partial class managementPage : System.Web.UI.Page
 
             string name = Request.Form["firstname"];
             string fav_team = Request.Form["radio1"];
-            
 
             string sql = "SELECT * FROM tUsers WHERE " +
-                         "name = N'" + name + "' AND " +
-                         "fav_team = N'" + fav_team + "'";
-            //sql = "SELECT * FROM tUsers";
+             "name LIKE N'%" + name + "%' AND " +
+             "fav_team LIKE N'%" + fav_team + "%'";
 
             DataTable dt = MyAdoHelper.ExecuteDataTable(sql);
 
@@ -37,7 +35,7 @@ public partial class managementPage : System.Web.UI.Page
                 st += "<td>אימייל</td>";
                 st += "<td>סיסמה</td>";
                 st += "<td>גיל</td>";
-
+                st += "</tr>";
 
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {

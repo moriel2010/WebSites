@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Policy;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 public partial class enrollmentPage : System.Web.UI.Page
 {
     public string strResult = "";
+    public string s = "";
+
     public string name;
     public string age;
     public string fav_player;
@@ -17,46 +14,44 @@ public partial class enrollmentPage : System.Web.UI.Page
     public string password;
     public string open_answer;
     public string phone;
-    public string s;
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (IsPostBack)
         {
-
-            string name = Request.Form["firstname"];
-            string phone = Request.Form["phone"];
-            string fav_player = Request.Form["check2"];
-            string fav_team = Request.Form["radio1"];
-            string email = Request.Form["email"];
-            string password = Request.Form["password"];
-            string open_answer = Request.Form["textarea1"];
-            string age = Request.Form["age"];
-
+            name = Request.Form["firstname"];
+            phone = Request.Form["phone"];
+            fav_player = Request.Form["check2"];
+            fav_team = Request.Form["radio1"];
+            email = Request.Form["email"];
+            password = Request.Form["password"];
+            open_answer = Request.Form["textarea1"];
+            age = Request.Form["age"];
 
             string sqlSelect =
-                "SELECT * FROM tUsers " +
-                "WHERE email = N'" + email + "'";
+                "SELECT * FROM tUsers WHERE email = N'" + email + "'";
+
             bool userExists = MyAdoHelper.IsExist(sqlSelect);
+
             if (userExists)
+            {
                 strResult = "מייל שהוכנס קיים במערכת, הכנס מייל חדש.";
+            }
             else
             {
-
-
-                string str =
-    "INSERT INTO tUsers VALUES (" +
-       "N'" + name + "'," +
-       "N'" + phone + "'," +
-       "N'" + fav_player + "'," +
-        "N'" + fav_team + "'," +
+                string sqlInsert =
+                "INSERT INTO tUsers VALUES (" +
+                "N'" + name + "'," +
+                "N'" + phone + "'," +
+                "N'" + fav_player + "'," +
+                "N'" + fav_team + "'," +
                 "N'" + open_answer + "'," +
+                "N'" + email + "'," +
+                "N'" + password + "'," +
+                "N'" + age + "'" +
+                ")";
 
-        "N'" + email + "'," +
-        "N'" + password + "'," +
-        "N'" + age + "'" +
-        ")";
-
-                MyAdoHelper.DoQuery("MyDB.mdf", str);
+                MyAdoHelper.DoQuery(sqlInsert);
 
                 s = "נרשמת בהצלחה!";
             }
