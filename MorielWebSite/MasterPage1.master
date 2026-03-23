@@ -34,9 +34,12 @@
                     <a href="galleryPage.aspx"><img src="Image/galleryPage.png" class="main"/></a>
                     <a href="entryPage.aspx"><img src="Image/entryPage.png" class="main"/></a>
                     <a href="managementPage.aspx"><img src="Image/managementPage.png" class="main"/></a>
-                    <a href="SearchPage.aspx"><img src="Image/SearchPage.png" class="main"/></a>
+                    <a href="AddPage.aspx"><img src="Image/SearchPage.png" class="main"/></a>
                     <a href="exitPage.aspx"><img src="image/exitPage.png" class="main" /></a>
                     <a href="UpdateDetailsPage.aspx"><img src="Image/UpdateDetailsPage.png" class="main"/></a>
+                   
+                    
+                
                 </td>
             </tr>
             <tr>
