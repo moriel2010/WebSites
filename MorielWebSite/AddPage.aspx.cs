@@ -8,6 +8,8 @@ public partial class enrollmentPage : System.Web.UI.Page
     public string league;
     public string Goldballs;
     public string team;
+    public string number;
+
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -18,15 +20,19 @@ public partial class enrollmentPage : System.Web.UI.Page
             league = Request.Form["league"];
             Goldballs = Request.Form["Goldballs"];
             team = Request.Form["team"];
+            number = Request.Form["number"];
+
+
 
             string sqlInsert =
-                "INSERT INTO MorielFootball " +
-                "(age, goals, league, Goldballs, team) VALUES (" +
+                "INSERT INTO morielFootball " +
+                "(age, goals, league, Goldballs, team, number) VALUES (" +
                 age + "," +
                 goals + "," +
                 "N'" + league + "'," +
                 Goldballs + "," +
                 "N'" + team + "'" +
+                    "," + number +
                 ")";
 
             MyAdoHelper.DoQuery(sqlInsert);

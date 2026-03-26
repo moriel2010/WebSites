@@ -15,6 +15,9 @@
         <br />
          קבוצה נוכחי: <input type="team" name="team" id="team" placeholder="example">
         <br />
+        מספר נוכחי: <input type="number" name="number" id="number" placeholder="example">
+        <br />
+         
        
         <input id="Submit1" type="submit" value="שלח" />
     </form>
