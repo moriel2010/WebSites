@@ -15,7 +15,9 @@ public partial class entryPage : System.Web.UI.Page
 
             if(email == "mondihash@gmail.com" && password == "morih2010")
             {
-                Response.Redirect("managementPage.aspx");
+                Session["userName"] = "מנהל";
+                Response.Redirect("Home.aspx");
+
 
             }
             else {
@@ -30,14 +32,18 @@ public partial class entryPage : System.Web.UI.Page
 
             if (isExists)
             {
+                    Session["userName"] = "משתמש רשום";
                     Response.Redirect("HomePage.aspx");
-                    stResult = " רשום";
 
+                    stResult = " רשום";
+                    
 
                 }
                 else
             {
                     stResult = " אורח";
+                    Session["userName"] = "אורח";
+                    
                 }
             }
         }

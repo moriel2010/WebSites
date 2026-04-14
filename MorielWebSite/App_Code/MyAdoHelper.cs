@@ -24,7 +24,7 @@ public class MyAdoHelper
         com.ExecuteNonQuery();
 
         com.Dispose();
-        conn.Open();
+        conn.Close();
     }
 
     public static int RowsAffected(string sql)
@@ -44,7 +44,8 @@ public class MyAdoHelper
     public static bool IsExist(string sql)
     {
         SqlConnection conn = ConnectToDb();
-        conn.Close();
+
+        conn.Open(); 
 
         SqlCommand com = new SqlCommand(sql, conn);
         SqlDataReader data = com.ExecuteReader();

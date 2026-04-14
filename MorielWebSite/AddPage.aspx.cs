@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web.UI;
 
-public partial class enrollmentPage : System.Web.UI.Page
+public partial class AddPage : System.Web.UI.Page
 {
     public string age;
     public string goals;
@@ -25,8 +25,8 @@ public partial class enrollmentPage : System.Web.UI.Page
 
 
             string sqlInsert =
-                "INSERT INTO morielFootball " +
-                "(age, goals, league, Goldballs, team, number) VALUES (" +
+                "INSERT INTO morielBall " +
+                "(age, goals, league, GoldBall, team, number) VALUES (" +
                 age + "," +
                 goals + "," +
                 "N'" + league + "'," +

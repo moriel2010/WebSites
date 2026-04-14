@@ -19,6 +19,8 @@
     </style>
 </head>
 <body>
+    שלום <% = Session["userName"] %>
+
     <center>
         <table border="1" style="width: 100%; height: 100vh; background-color: beige">
             <tr style=height: 70px">
