@@ -29,7 +29,9 @@
                 </td>
             </tr>
             <tr height="150px">
+              
                 <td style="text-align: center">
+                    
                     <a href="HomePage.aspx"><img src="Image/HomePage.png" class="main"/></a>
                     <a href="Kefel.aspx">כפל</a>
                     <a href="enrollmentPage.aspx"><img src="Image/enrollmentPage.png" class="main"/></a>

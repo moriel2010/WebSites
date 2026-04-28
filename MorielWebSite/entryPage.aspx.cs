@@ -15,20 +15,36 @@ public partial class entryPage : System.Web.UI.Page
 
             if(email == "mondihash@gmail.com" && password == "morih2010")
             {
-                Session["userName"] = "מנהל";
-                Response.Redirect("Home.aspx");
+                Session["nihol"] = "ok";
+                Session["userName"] = "מנהל מוריאל";
+
+                Response.Redirect("managementPage.aspx");
 
 
             }
             else {
 
 
-            string sqlSelect =
+            string sql =
                 "SELECT * FROM tUsers " +
                 "WHERE email = N'" + email + "' " +
                 "AND password = N'" + password + "'";
 
-            bool isExists = MyAdoHelper.IsExist(sqlSelect);
+                System.Data.DataTable dt = MyAdoHelper.ExecuteDataTable(sql);
+
+                if (dt.Rows.Count == 0)
+                {
+                    stResult = "אין נתונים";
+                }
+                else
+                {
+                    Session["user"] = "ok";
+                    stResult = " אורח";
+                    Session["userName"] = dt.Rows[0]["name"];
+                    Session["userName"] = "אורח";
+                }
+
+                bool isExists = MyAdoHelper.IsExist(sql);
 
             if (isExists)
             {

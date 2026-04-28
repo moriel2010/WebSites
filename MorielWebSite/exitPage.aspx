@@ -3,6 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <%Session.Abandon();
+        Response.Redirect("entryPage.aspx");
+        %>
     <h2>exit</h2>
 </asp:Content>
 

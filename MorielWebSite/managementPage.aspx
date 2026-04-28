@@ -9,7 +9,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <center>
-        <h1>חיפוש</h1>
+        <h1>מנהל</h1>
          <form name="formPage" method="post" runat="server">
      שם פרטי: <input type="text" name="firstname" id="firstname" placeholder="example">
      <br />
