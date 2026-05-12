@@ -1,16 +1,72 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage1.master" AutoEventWireup="true" CodeFile="enrollmentPage.aspx.cs" Inherits="enrollmentPage" %>
+﻿<%@ Page Title="" Language= "C#"  MasterPageFile="~/MasterPage1.master" AutoEventWireup="true" CodeFile="enrollmentPage.aspx.cs" Inherits="enrollmentPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
-</asp:Content>
+    <script language="javascript">
+       
+
+            function checkAll() {
+
+                document.getElementById("fnErr2").innerHTML = "";
+            document.getElementById("emErr2").innerHTML = "";
+
+            let result = true;
+
+            if (checkFirstName() == false)
+            result = false;
+
+            if (checkEmail() == false)
+            result = false;
+
+            return result;
+    }
+
+            function checkFirstName() {
+
+                let firstname =
+            document.getElementById("firstname").value;
+
+            if (firstname == "") {
+
+                document.getElementById("fnErr2").innerHTML ="שם פרטי לא יכול להיות ריק";
+
+            return false;
+        }
+
+            return true;
+    }
+
+            function checkEmail() {
+
+                let email =
+            document.getElementById("email").value;
+
+            if (email == "") {
+
+                document.getElementById("emErr2").innerHTML =
+                "אימייל לא יכול להיות ריק";
+
+            return false;
+        }
+
+            return true;
+    }
+
+    </script>
+</asp:Content>  
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <h2>enrollment</h2>
-    <form name="formPage" method="post" runat="server">
+    <form name="formPage" method="post" runat="server" onsubmit="return checkAll();">
         שם פרטי: <input type="text" name="firstname" id="firstname" placeholder="example">
+                <span id="fnErr2"></span>
+
         <br />
+
          טלפון: <input type="tel" name="phone" id="phone" placeholder="example">
         <br />
          אימייל: <input type="text" name="email" id="email" placeholder="example">
         <br />
+        <span id="emErr2"></span>
+
          סיסמה: <input type="password" name="password" id="password" placeholder="example">
         <br />
         שחקן אהוב: 
