@@ -7,7 +7,12 @@
             function checkAll() {
 
                 document.getElementById("fnErr2").innerHTML = "";
-            document.getElementById("emErr2").innerHTML = "";
+                document.getElementById("emErr2").innerHTML = "";
+                document.getElementById("phErr2").innerHTML = "";
+                document.getElementById("pwErr2").innerHTML = "";
+
+
+
 
             let result = true;
 
@@ -49,7 +54,41 @@
         }
 
             return true;
-    }
+        }
+        function checkAll() {
+
+            document.getElementById("phErr2").innerHTML = "";
+
+            let result = true;
+
+            if (checkFirstName() == false)
+                result = false;
+
+            if (checkEmail() == false)
+                result = false;
+
+            if (checkPhone() == false)
+                result = false;
+
+            return result;
+        }
+
+        function checkPhone() {
+
+            let phone =
+                document.getElementById("phone").value;
+
+            if (phone == "") {
+
+                document.getElementById("phErr2").innerHTML =
+                    "טלפון לא יכול להיות ריק";
+
+                return false;
+            }
+
+            return true;
+        }
+
 
     </script>
 </asp:Content>  
@@ -62,10 +101,14 @@
         <br />
 
          טלפון: <input type="tel" name="phone" id="phone" placeholder="example">
+                <span id="phErr2"></span>
+
         <br />
+
          אימייל: <input type="text" name="email" id="email" placeholder="example">
+                <span id="emErr2"></span>
+
         <br />
-        <span id="emErr2"></span>
 
          סיסמה: <input type="password" name="password" id="password" placeholder="example">
         <br />
