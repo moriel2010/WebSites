@@ -7,10 +7,23 @@
     <title>כדורגל</title>
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
+
     <style>
         img.main {
-            width: 150px;
-            height: 100px;
+            width: 120px;
+            height: 80px;
+        }
+
+        .menu img {
+            width: 120px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .menu a {
+            display: inline-block;
+            margin: 5px;
+            vertical-align: middle;
         }
 
         input, textarea, select {
@@ -18,34 +31,34 @@
         }
     </style>
 </head>
+
 <body>
     שלום <% = Session["userName"] %>
 
     <center>
         <table border="1" style="width: 100%; height: 100vh; background-color: beige">
-            <tr style=height: 70px">
+            <tr style="height: 70px">
                 <td style="text-align: center">
                     <font style="color:black; font-size: 50px">כדורגל</font>
                 </td>
             </tr>
+
             <tr height="150px">
-              
-                <td style="text-align: center">
-                    
-                    <a href="HomePage.aspx"><img src="Image/HomePage.png" class="main"/></a>
+                <td class="menu" style="text-align: center">
+                    <a href="HomePage.aspx"><img src="Image/HomePage.png" class="main" /></a>
                     <a href="Kefel.aspx">כפל</a>
-                    <a href="enrollmentPage.aspx"><img src="Image/enrollmentPage.png" class="main"/></a>
-                    <a href="galleryPage.aspx"><img src="Image/galleryPage.png" class="main"/></a>
-                    <a href="entryPage.aspx"><img src="Image/entryPage.png" class="main"/></a>
-                    <a href="managementPage.aspx"><img src="Image/managementPage.png" class="main"/></a>
-                    <a href="AddPage.aspx"><img src="Image/SearchPage.png" class="main"/></a>
-                    <a href="exitPage.aspx"><img src="image/exitPage.png" class="main" /></a>
-                    <a href="UpdateDetailsPage.aspx"><img src="Image/UpdateDetailsPage.png" class="main"/></a>
-                   
-                    
-                
+                    <a href="enrollmentPage.aspx"><img src="Image/enrollmentPage.png" class="main" /></a>
+                    <a href="galleryPage.aspx"><img src="Image/galleryPage.png" class="main" /></a>
+                    <a href="entryPage.aspx"><img src="Image/entryPage.png" class="main" /></a>
+                    <a href="informionPage.aspx"><img src="Image/informion.png" class="main" /></a>
+                    <a href="managementPage.aspx"><img src="Image/managementPage.png" class="main" /></a>
+                    <a href="odotPage.aspx"><img src="Image/odotPage.png"  class="main" /></a>
+                    <a href="AddPage.aspx"><img src="Image/AddPage.png"  class="main" /></a>
+                    <a href="exitPage.aspx"><img src="Image/exitPage.png" class="main" /></a>
+                    <a href="UpdateDetailsPage.aspx"><img src="Image/UpdateDetailsPage.png" class="main" /></a>
                 </td>
             </tr>
+
             <tr>
                 <td style="text-align: center">
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
@@ -53,7 +66,6 @@
                 </td>
             </tr>
         </table>
-     </center>
-
+    </center>
 </body>
 </html>
