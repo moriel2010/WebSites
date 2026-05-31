@@ -37,12 +37,12 @@
         <h2>gallery</h2>
 
         <div class="gallery-grid">
-            <img src="Image/כדורגל.jpg" alt="כדורגל" />
-            <img src="Image/ליגת%20האלופות.jpg" alt="ליגת האלופות" />
-            <img src="Image/מונדיאל.jpg" alt="מונדיאל" />
-            <img src="Image/כדורזהב.jpg" alt="כדור הזהב" />
-            <img src="Image/ליגתעל.jpg" alt="ליגת העל" />
-            <img src="Image/כדור.jpg" alt="כדור" />
+            <img src="Image/ספוטיפיי.jpg" />
+            <img src="Image/אפל.png" />
+            <img src="Image/מצמ.jpg" />
+            <img src="Image/9.jpg" />
+            <img src="Image/3.jpg" />
+            <img src="Image/5.jpg" />
         </div>
     </div>
 </asp:Content>
