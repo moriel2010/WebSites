@@ -21,15 +21,14 @@
         }
     </script>
 </asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <div class="page-container">
+    <div class="page-container" style="direction: rtl; text-align: right;">
         
         <h2 style="color: white; margin-bottom: 20px;">הוספת פריט</h2>
         
         <form name="AddPage" method="post" runat="server" onsubmit="return checkAll();">
             
-            <table class="form-table">
+            <table class="form-table" style="width: 100%; max-width: 500px;">
                 <tr style="color: white;">
                     <td>גיל:</td>
                     <td><input type="number" name="age" id="age" placeholder="example"></td>
