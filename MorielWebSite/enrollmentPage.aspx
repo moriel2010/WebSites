@@ -137,7 +137,6 @@
         <br />
         <input id="Submit1" type="submit" value="שלח" />
     </form>
-   </hr>
     <%=name %>
     <br/>
     <br/>
