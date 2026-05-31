@@ -112,19 +112,19 @@
 
          סיסמה: <input type="password" name="password" id="password" placeholder="example">
         <br />
-        שחקן אהוב: 
+        זמר אהוב: 
         <br />
-        ניימאר<input type="checkbox" name="check2"  value="ניימאר" id="check_1"><br />
-        מסי: <input type="checkbox" name="check2" value="מסי" id="check_2"><br />
-        רונאלדו<input type="checkbox" name="check2" value="רונאלדיניו"  id="check_3"><br />
-        סוארס: <input type="checkbox" name="check2" value="סוארס" id="check_4">
+        עדן בן זקן<input type="checkbox" name="check2"  value="עדן בן זקן" id="check_1"><br />
+        עומר אדם <input type="checkbox" name="check2" value="עומר אדם" id="check_2"><br />
+        אייל גולן<input type="checkbox" name="check2" value="אייל גולן"  id="check_3"><br />
+        פאר טסי: <input type="checkbox" name="check2" value="פאר טסי" id="check_4">
          <br />
-        הקבוצה האהובה עליך: 
+        שיר אהוב עליך: 
         <br />
-        ברצלונה<input type="radio" name="radio1"  value= " ברצלונה" id="radio_1"><br />
-        ריאל מדריד<input type="radio" name="radio1"  value= "ריאל מדריד " id="radio_2"><br />
-        ארסנל<input type="radio" name="radio1"  value= "ארסנל "  id="radio_3"><br />
-        מנצ'סטר סיטי<input type="radio"  name= "radio1" value="2012" id="radio_4"><br />
+        רציתי<input type="radio" name="radio1"  value= " רציתי" id="radio_1"><br />
+        שני משוגעים<input type="radio" name="radio1"  value= "שני משוגעים " id="radio_2"><br />
+        תבואי היום<input type="radio" name="radio1"  value= "תבואי היום "  id="radio_3"><br />
+        דרך השלום<input type="radio"  name= "radio1" value="דרך השלום" id="radio_4"><br />
         תשובה פתוחה:
         <textarea rows="5" cols="20" name="textarea1" id="textarea1" placeholder="הכנס מלל חופשי"></textarea>
         <br />
@@ -149,10 +149,10 @@
     <%=password %>
     <br/>
     <br/>
-    <%= fav_player %>
+    <%= fav_singer %>
     <br/>
     <br/>
-    <%= fav_team %>
+    <%= fav_song %>
     <br />
     <br />
     <%= open_answer %>

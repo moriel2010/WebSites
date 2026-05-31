@@ -8,8 +8,8 @@ public partial class enrollmentPage : System.Web.UI.Page
 
     public string name;
     public string age;
-    public string fav_player;
-    public string fav_team;
+    public string fav_singer;
+    public string fav_song;
     public string email;
     public string password;
     public string open_answer;
@@ -21,15 +21,15 @@ public partial class enrollmentPage : System.Web.UI.Page
         {
             name = Request.Form["firstname"];
             phone = Request.Form["phone"];
-            fav_player = Request.Form["check2"];
-            fav_team = Request.Form["radio1"];
+            fav_singer = Request.Form["check2"];
+            fav_song = Request.Form["radio1"];
             email = Request.Form["email"];
             password = Request.Form["password"];
             open_answer = Request.Form["textarea1"];
             age = Request.Form["age"];
 
             string sqlSelect =
-                "SELECT * FROM tUsers WHERE email = N'" + email + "'";
+                "SELECT * FROM mSong WHERE email = N'" + email + "'";
 
             bool userExists = MyAdoHelper.IsExist(sqlSelect);
 
@@ -40,11 +40,11 @@ public partial class enrollmentPage : System.Web.UI.Page
             else
             {
                 string sqlInsert =
-                "INSERT INTO tUsers VALUES (" +
+                "INSERT INTO mSong VALUES (" +
                 "N'" + name + "'," +
                 "N'" + phone + "'," +
-                "N'" + fav_player + "'," +
-                "N'" + fav_team + "'," +
+                "N'" + fav_singer + "'," +
+                "N'" + fav_song + "'," +
                 "N'" + open_answer + "'," +
                 "N'" + email + "'," +
                 "N'" + password + "'," +

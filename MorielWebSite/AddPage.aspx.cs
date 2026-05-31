@@ -4,11 +4,11 @@ using System.Web.UI;
 public partial class AddPage : System.Web.UI.Page
 {
     public string age;
-    public string goals;
-    public string league;
-    public string Goldballs;
-    public string team;
-    public string number;
+    public string city;
+    public string followers;
+    public string awards;
+    public string Albums;
+    public string best_song;
 
 
     protected void Page_Load(object sender, EventArgs e)
@@ -16,23 +16,23 @@ public partial class AddPage : System.Web.UI.Page
         if (IsPostBack)
         {
             age = Request.Form["age"];
-            goals = Request.Form["goals"];
-            league = Request.Form["league"];
-            Goldballs = Request.Form["Goldballs"];
-            team = Request.Form["team"];
-            number = Request.Form["number"];
+            city = Request.Form["city"];
+            followers = Request.Form["followers"];
+            awards = Request.Form["awards"];
+            Albums = Request.Form["Albums"];
+            best_song = Request.Form["best_song"];
 
 
 
             string sqlInsert =
-                "INSERT INTO morielBall " +
-                "(age, goals, league, GoldBall, team, number) VALUES (" +
+                "INSERT INTO morielAdd " +
+                "(age, city, followers, awards, Albums, best_song) VALUES (" +
                 age + "," +
-                goals + "," +
-                "N'" + league + "'," +
-                Goldballs + "," +
-                "N'" + team + "'" +
-                    "," + number +
+                "N'" + city + "'," +       
+                "N'" + followers + "'," +
+                awards + "," +
+                "N'" + Albums + "'," +
+                "N'" + best_song + "'" +  
                 ")";
 
             MyAdoHelper.DoQuery(sqlInsert);
