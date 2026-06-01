@@ -51,10 +51,12 @@ public partial class shlifaPage : System.Web.UI.Page
                 {
                     st += "<tr>";
 
-                    for (int k = 0; k < dt.Columns.Count; k++)
-                    {
-                        st += "<td>" + dt.Rows[i][k] + "</td>";
-                    }
+                    st += "<td>" + dt.Rows[i]["age"] + "</td>";        
+                    st += "<td>" + dt.Rows[i]["city"] + "</td>";      
+                    st += "<td>" + dt.Rows[i]["followers"] + "</td>";  
+                    st += "<td>" + dt.Rows[i]["awards"] + "</td>";    
+                    st += "<td>" + dt.Rows[i]["Albums"] + "</td>";     
+                    st += "<td>" + dt.Rows[i]["best_song"] + "</td>";  
 
                     st += "</tr>";
                 }

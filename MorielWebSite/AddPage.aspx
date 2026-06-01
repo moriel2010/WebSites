@@ -3,7 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
     <script type="text/javascript">
         function checkAll() {
-            // קליטת הערכים מכל השדות
             let age = document.getElementById("age").value;
             let city = document.getElementById("city").value;
             let followers = document.getElementById("followers").value;
@@ -11,13 +10,12 @@
             let albums = document.getElementById("Albums").value;
             let bestSong = document.getElementById("best_song").value;
 
-            // בדיקה ששום שדה לא ריק
             if (age === "" || city === "" || followers === "" || awards === "" || albums === "" || bestSong === "") {
                 alert("חובה למלא את כל השדות לפני השליחה!");
-                return false; // עוצר את שליחת הטופס לשרת
+                return false;
             }
 
-            return true; // מאשר את השליחה אם הכל תקין
+            return true;
         }
     </script>
 </asp:Content>
