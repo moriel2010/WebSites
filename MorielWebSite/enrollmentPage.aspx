@@ -2,111 +2,65 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
     <script language="javascript">
-       
-
-            function checkAll() {
-
-                document.getElementById("fnErr2").innerHTML = "";
-                document.getElementById("emErr2").innerHTML = "";
-                document.getElementById("phErr2").innerHTML = "";
-                document.getElementById("pwErr2").innerHTML = "";
-
-
-
-
-            let result = true;
-
-            if (checkFirstName() == false)
-            result = false;
-
-            if (checkEmail() == false)
-            result = false;
-
-            return result;
-    }
-
-            function checkFirstName() {
-
-                let firstname =
-            document.getElementById("firstname").value;
-
-            if (firstname == "") {
-
-                document.getElementById("fnErr2").innerHTML ="שם פרטי לא יכול להיות ריק";
-
-            return false;
-        }
-
-            return true;
-    }
-
-            function checkEmail() {
-
-                let email =
-            document.getElementById("email").value;
-
-            if (email == "") {
-
-                document.getElementById("emErr2").innerHTML =
-                "אימייל לא יכול להיות ריק";
-
-            return false;
-        }
-
-            return true;
-        }
         function checkAll() {
-
+            // איפוס שגיאות
+            document.getElementById("fnErr2").innerHTML = "";
+            document.getElementById("emErr2").innerHTML = "";
             document.getElementById("phErr2").innerHTML = "";
 
             let result = true;
 
-            if (checkFirstName() == false)
-                result = false;
-
-            if (checkEmail() == false)
-                result = false;
-
-            if (checkPhone() == false)
-                result = false;
+            if (checkFirstName() == false) result = false;
+            if (checkPhone() == false) result = false;
+            if (checkEmail() == false) result = false;
 
             return result;
         }
 
-        function checkPhone() {
-
-            let phone =
-                document.getElementById("phone").value;
-
-            if (phone == "") {
-
-                document.getElementById("phErr2").innerHTML =
-                    "טלפון לא יכול להיות ריק";
-
+        function checkFirstName() {
+            let firstname = document.getElementById("firstname").value;
+            if (firstname == "") {
+                document.getElementById("fnErr2").innerHTML = "שם פרטי לא יכול להיות ריק";
                 return false;
             }
-
             return true;
         }
 
+        function checkPhone() {
+            let phone = document.getElementById("phone").value;
+            if (phone == "") {
+                document.getElementById("phErr2").innerHTML = "טלפון לא יכול להיות ריק";
+                return false;
+            }
+            return true;
+        }
 
+        function checkEmail() {
+            let email = document.getElementById("email").value;
+            if (email == "") {
+                document.getElementById("emErr2").innerHTML = "אימייל לא יכול להיות ריק";
+                return false;
+            }
+            return true;
+        }
     </script>
 </asp:Content>  
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <h2>enrollment</h2>
     <form name="formPage" method="post" runat="server" onsubmit="return checkAll();">
         שם פרטי: <input type="text" name="firstname" id="firstname" placeholder="example">
-                <span id="fnErr2"></span>
+                <span id="fnErr2" style="color: red;"></span>
 
         <br />
 
          טלפון: <input type="tel" name="phone" id="phone" placeholder="example">
-                <span id="phErr2"></span>
+                <span id="phErr2" style="color: red;"></span>
 
         <br />
 
          אימייל: <input type="text" name="email" id="email" placeholder="example">
-                <span id="emErr2"></span>
+                <span id="emErr2" style="color: red;"></span>
 
         <br />
 
@@ -137,31 +91,19 @@
         <br />
         <input id="Submit1" type="submit" value="שלח" />
     </form>
-    <%=name %>
-    <br/>
-    <br/>
-    <%= phone %>
-    <br/>
-    <br/>
-    <%=email %>
-    <br/>
-    <br/>
-    <%=password %>
-    <br/>
-    <br/>
-    <%= fav_singer %>
-    <br/>
-    <br/>
-    <%= fav_song %>
+
+    <div style="color: red; font-weight: bold; margin-top: 15px; font-size: 16px;">
+        <%= strResult %>
+    </div>
+
     <br />
-    <br />
-    <%= open_answer %>
-    <br/>
-    <br/>
-      <%=age %>
-    <br />
-    <br />
+    <%=name %> <br/>
+    <%= phone %> <br/>
+    <%=email %> <br/>
+    <%=password %> <br/>
+    <%= fav_singer %> <br/>
+    <%= fav_song %> <br />
+    <%= open_answer %> <br/>
+    <%=age %> <br />
     <%=s %>
-
 </asp:Content>
-

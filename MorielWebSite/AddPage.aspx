@@ -3,6 +3,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
     <script type="text/javascript">
         function checkAll() {
+            // איפוס הודעות שגיאה קודמות
+            document.getElementById("ageErr").innerHTML = "";
+            document.getElementById("cityErr").innerHTML = "";
+            document.getElementById("followersErr").innerHTML = "";
+            document.getElementById("awardsErr").innerHTML = "";
+            document.getElementById("albumsErr").innerHTML = "";
+            document.getElementById("songErr").innerHTML = "";
+
+            let isOK = true;
+
             let age = document.getElementById("age").value;
             let city = document.getElementById("city").value;
             let followers = document.getElementById("followers").value;
@@ -10,14 +20,43 @@
             let albums = document.getElementById("Albums").value;
             let bestSong = document.getElementById("best_song").value;
 
-            if (age === "" || city === "" || followers === "" || awards === "" || albums === "" || bestSong === "") {
-                alert("חובה למלא את כל השדות לפני השליחה!");
-                return false;
+            // בדיקת גיל (חיובי ומספר)
+            if (age === "" || Number(age) <= 0) {
+                document.getElementById("ageErr").innerHTML = "יש להזין גיל תקין חיובי";
+                isOK = false;
+            }
+            // בדיקת עיר
+            if (city.trim() === "") {
+                document.getElementById("cityErr").innerHTML = "שדה עיר הוא חובה";
+                isOK = false;
+            }
+            // בדיקת עוקבים
+            if (followers.trim() === "") {
+                document.getElementById("followersErr").innerHTML = "שדה עוקבים הוא חובה";
+                isOK = false;
+            }
+            // בדיקת פרסים (מספר לא שלילי)
+            if (awards === "" || Number(awards) < 0) {
+                document.getElementById("awardsErr").innerHTML = "יש להזין מספר פרסים תקין";
+                isOK = false;
+            }
+            // בדיקת אלבומים
+            if (albums.trim() === "") {
+                document.getElementById("albumsErr").innerHTML = "שדה אלבומים הוא חובה";
+                isOK = false;
+            }
+            // בדיקת השיר הכי טוב
+            if (bestSong.trim() === "") {
+                document.getElementById("songErr").innerHTML = "שדה שיר הוא חובה";
+                isOK = false;
             }
 
-            return true;
+            return isOK;
         }
     </script>
+    <style>
+        .error-msg { color: red; font-size: 14px; font-weight: bold; padding-right: 10px; }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="page-container" style="direction: rtl; text-align: right;">

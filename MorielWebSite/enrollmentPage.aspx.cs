@@ -28,9 +28,8 @@ public partial class enrollmentPage : System.Web.UI.Page
             open_answer = Request.Form["textarea1"];
             age = Request.Form["age"];
 
-            string sqlSelect =
-                "SELECT * FROM mSong WHERE email = N'" + email + "'";
-
+            // בדיקה אם המייל כבר קיים בטבלת המשתמשים
+            string sqlSelect = "SELECT * FROM mSong WHERE email = N'" + email + "'";
             bool userExists = MyAdoHelper.IsExist(sqlSelect);
 
             if (userExists)
@@ -39,21 +38,23 @@ public partial class enrollmentPage : System.Web.UI.Page
             }
             else
             {
-                string sqlInsert =
-                "INSERT INTO mSong VALUES (" +
-                "N'" + name + "'," +
-                "N'" + phone + "'," +
-                "N'" + fav_singer + "'," +
-                "N'" + fav_song + "'," +
-                "N'" + open_answer + "'," +
-                "N'" + email + "'," +
-                "N'" + password + "'," +
-                "N'" + age + "'" +
-                ")";
+
+                // הכנסת הנתונים לטבלת המשתמשים tUsers
+                string sqlInsert = "INSERT INTO mSong VALUES (" +
+                    "N'" + name + "'," +
+                    "N'" + phone + "'," +
+                    "N'" + fav_singer + "'," +
+                    "N'" + fav_song + "'," +
+                    "N'" + open_answer + "'," +
+                    "N'" + email + "'," +
+                    "N'" + password + "'," +
+                    "N'" + age + "'" +
+                    ")";
 
                 MyAdoHelper.DoQuery(sqlInsert);
 
-                s = "נרשמת בהצלחה!";
+                // מעבר אוטומטי לדף התחברות לאחר ההרשמה
+                Response.Redirect("entryPage.aspx");
             }
         }
     }
