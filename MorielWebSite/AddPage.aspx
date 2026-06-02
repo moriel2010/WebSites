@@ -11,6 +11,8 @@
             document.getElementById("awardsErr").innerHTML = "";
             document.getElementById("albumsErr").innerHTML = "";
             document.getElementById("songErr").innerHTML = "";
+            document.getElementById("bioErr").innerHTML = "";
+
 
             let isOK = true;
 
@@ -21,6 +23,8 @@
             let awards = document.getElementById("awards").value;
             let albums = document.getElementById("Albums").value;
             let bestSong = document.getElementById("best_song").value;
+            let bio = document.getElementById("bio").value;
+
 
             // בדיקת שם אמן
             if (artistName.trim() === "") {
@@ -57,6 +61,12 @@
                 document.getElementById("songErr").innerHTML = "שדה שיר הוא חובה";
                 isOK = false;
             }
+            // בדיקת ביוגרפיה
+            if (bio.trim() === "") {
+                document.getElementById("bioErr").innerHTML = "שדה ביוגרפיה הוא חובה";
+                isOK = false;
+            }
+
 
             return isOK;
         }
@@ -107,7 +117,12 @@
                     <td><input type="text" name="best_song" id="best_song" placeholder="הכנס שיר..."></td>
                     <td><span id="songErr" class="error-msg"></span></td>
                 </tr>
-                <tr>
+                <tr style="color: white;">
+                    <td>ביוגרפיה ומידע נוסף:</td>
+                    <td><textarea name="bio" id="bio" rows="4" cols="30" placeholder="כתוב כאן סיפור, רקע או מידע מעניין על הזמר..."></textarea></td>
+                    <td><span id="bioErr" class="error-msg"></span></td>
+               </tr>
+               <tr>
                     <td colspan="3" style="text-align: center; padding-top: 20px;">
                         <input id="Submit1" type="submit" value="שלח פריט " style="padding: 8px 25px; cursor: pointer; font-weight: bold;" />
                     </td>

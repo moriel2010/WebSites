@@ -25,7 +25,7 @@ public partial class shlifaPage : System.Web.UI.Page
            
 
             // שאילתת בסיס חכמה עם תנאי שתמיד נכון, כדי להוסיף עליו תנאים בהמשך
-            string sql = "SELECT * FROM hSong WHERE 1=1";
+            string sql = "SELECT * FROM moriel WHERE 1=1";
 
             // אם המשתמש רשם עיר - נוסיף סינון של עיר עם LIKE (חיפוש חלקי)
             if (!string.IsNullOrEmpty(artistName))
@@ -58,6 +58,7 @@ public partial class shlifaPage : System.Web.UI.Page
                 st += "<td>פרסים ותארים</td>";
                 st += "<td>אלבומים שיצאו</td>";
                 st += "<td>השיר הכי מצליח</td>";
+                st += "<td>מידע נוסף</td>";
                 st += "</tr>";
 
                 // לולאה שרצה על כל השורות שחזרו מהדאטה-בייס ומציגה אותן
@@ -71,6 +72,7 @@ public partial class shlifaPage : System.Web.UI.Page
                     st += "<td>" + dt.Rows[i]["awards"] + "</td>";
                     st += "<td>" + dt.Rows[i]["Albums"] + "</td>";
                     st += "<td>" + dt.Rows[i]["best_song"] + "</td>";
+                    st += "<td>" + dt.Rows[i]["bio"] + "</td>";
                     st += "</tr>";
                 }
 

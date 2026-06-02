@@ -11,6 +11,7 @@ public partial class AddPage : System.Web.UI.Page
     public string awards;
     public string Albums;
     public string best_song;
+    public string bio;
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -31,17 +32,20 @@ public partial class AddPage : System.Web.UI.Page
             awards = !string.IsNullOrEmpty(Request.Form["awards"]) ? Request.Form["awards"] : "0";
             Albums = Request.Form["Albums"] != null ? Request.Form["Albums"].Trim() : "";
             best_song = Request.Form["best_song"] != null ? Request.Form["best_song"].Trim() : "";
+            bio = Request.Form["bio"] != null ? Request.Form["bio"].Trim() : "";
+
 
             // בניית שאילתת ה-INSERT עם העמודה החדשה artistName
             string sqlInsert =
-                "INSERT INTO hSong (artistName, age, city, followers, awards, Albums, best_song) VALUES (" +
+                "INSERT INTO moriel (artistName, age, city, followers, awards, Albums, best_song, bio) VALUES (" +
                 "N'" + artistName + "', " +
                 age + ", " +
                 "N'" + city + "', " +
                 "N'" + followers + "', " +
                 awards + ", " +
                 "N'" + Albums + "', " +
-                "N'" + best_song + "'" +
+                "N'" + best_song + "'," +
+                "N'" + bio + "'" +
                 ")";
 
             // הרצת השאילתה לשמירה במסד הנתונים
