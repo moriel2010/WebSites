@@ -21,23 +21,20 @@ public partial class shlifaPage : System.Web.UI.Page
 
         if (IsPostBack)
         {
-            string city = Request.Form["city"] != null ? Request.Form["city"].Trim() : "";
-            string best_song = Request.Form["best_song"] != null ? Request.Form["best_song"].Trim() : "";
+            string artistName = Request.Form["artistName"] != null ? Request.Form["artistName"].Trim() : "";
+           
 
             // שאילתת בסיס חכמה עם תנאי שתמיד נכון, כדי להוסיף עליו תנאים בהמשך
-            string sql = "SELECT * FROM morielAdd WHERE 1=1";
+            string sql = "SELECT * FROM hSong WHERE 1=1";
 
             // אם המשתמש רשם עיר - נוסיף סינון של עיר עם LIKE (חיפוש חלקי)
-            if (!string.IsNullOrEmpty(city))
+            if (!string.IsNullOrEmpty(artistName))
             {
-                sql += " AND city LIKE N'%" + city + "%'";
+                sql += " AND artistName LIKE N'%" + artistName + "%'";
             }
 
-            // אם המשתמש רשם שיר - נוסיף סינון של שיר
-            if (!string.IsNullOrEmpty(best_song))
-            {
-                sql += " AND best_song LIKE N'%" + best_song + "%'";
-            }
+           
+            
 
             // הפעלת השאילתה מול מסד הנתונים
             DataTable dt = MyAdoHelper.ExecuteDataTable(sql);
@@ -55,6 +52,7 @@ public partial class shlifaPage : System.Web.UI.Page
                 // שורת כותרות קבועה ויפה
                 st += "<tr style='background-color: #4a148c; color: #d4af37; font-weight: bold; height: 40px;'>";
                 st += "<td>גיל</td>";
+                st += "<td>שם אומן</td>";
                 st += "<td>עיר מוצא</td>";
                 st += "<td>עוקבים ברשתות</td>";
                 st += "<td>פרסים ותארים</td>";
@@ -67,6 +65,7 @@ public partial class shlifaPage : System.Web.UI.Page
                 {
                     st += "<tr style='height: 35px;'>";
                     st += "<td>" + dt.Rows[i]["age"] + "</td>";
+                    st += "<td>" + dt.Rows[i]["artistName"] + "</td>";
                     st += "<td>" + dt.Rows[i]["city"] + "</td>";
                     st += "<td>" + dt.Rows[i]["followers"] + "</td>";
                     st += "<td>" + dt.Rows[i]["awards"] + "</td>";

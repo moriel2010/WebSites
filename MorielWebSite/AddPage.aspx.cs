@@ -3,6 +3,8 @@ using System.Web.UI;
 
 public partial class AddPage : System.Web.UI.Page
 {
+    // הגדרת המשתנים שיוצגו או יישמרו
+    public string artistName;
     public string age;
     public string city;
     public string followers;
@@ -12,7 +14,7 @@ public partial class AddPage : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        // הגנה: רק משתמש רשום או מנהל יכולים להוסיף פריטים
+        // הגנה: רק מחוברים יכולים להוסיף
         if (Session["userRole"] == null || Session["userRole"].ToString() == "guest")
         {
             Response.Redirect("entryPage.aspx");
@@ -21,6 +23,8 @@ public partial class AddPage : System.Web.UI.Page
 
         if (IsPostBack)
         {
+            // קליטת כל השדות מהטופס בצורה בטוחה
+            artistName = Request.Form["artistName"] != null ? Request.Form["artistName"].Trim() : "";
             age = !string.IsNullOrEmpty(Request.Form["age"]) ? Request.Form["age"] : "0";
             city = Request.Form["city"] != null ? Request.Form["city"].Trim() : "";
             followers = Request.Form["followers"] != null ? Request.Form["followers"].Trim() : "";
@@ -28,8 +32,10 @@ public partial class AddPage : System.Web.UI.Page
             Albums = Request.Form["Albums"] != null ? Request.Form["Albums"].Trim() : "";
             best_song = Request.Form["best_song"] != null ? Request.Form["best_song"].Trim() : "";
 
+            // בניית שאילתת ה-INSERT עם העמודה החדשה artistName
             string sqlInsert =
-                "INSERT INTO morielAdd (age, city, followers, awards, Albums, best_song) VALUES (" +
+                "INSERT INTO hSong (artistName, age, city, followers, awards, Albums, best_song) VALUES (" +
+                "N'" + artistName + "', " +
                 age + ", " +
                 "N'" + city + "', " +
                 "N'" + followers + "', " +
@@ -38,9 +44,10 @@ public partial class AddPage : System.Web.UI.Page
                 "N'" + best_song + "'" +
                 ")";
 
+            // הרצת השאילתה לשמירה במסד הנתונים
             MyAdoHelper.DoQuery(sqlInsert);
 
-            // אחרי הוספה מוצלחת - נעביר אותו ישירות לדף השליפה לראות את זה!
+            // מעבר אוטומטי לדף השליפה לראות את התוצאה
             Response.Redirect("shlifaPage.aspx");
         }
     }

@@ -40,19 +40,17 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="shlifa-container">
-        <h2>מערכת שליפה וסינון פריטים (morielAdd)</h2>
+        <h2>מערכת שליפה וסינון פריטים </h2>
         <br />
 
         <div class="search-box">
             <form name="formPage" method="post" runat="server">
-                עיר מוצא:
-                <input type="text" name="city" id="city" placeholder="הכנס שם עיר..." />
+                שם האומן:
+                <input type="text" name="artistName" id="artistName" placeholder="הכנס שם אומן..." />
                 
-                &nbsp;&nbsp;&nbsp;
+       
                 
-                השיר הכי טוב:
-                <input type="text" name="best_song" id="best_song" placeholder="הכנס שם שיר..." />
-                <br /><br />
+           
                 
                 <input id="Submit1" type="submit" value="שלוף נתונים" class="btn-submit" />
             </form>
