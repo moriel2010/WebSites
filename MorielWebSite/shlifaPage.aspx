@@ -35,12 +35,17 @@
             background-color: #d4af37;
             color: black;
         }
+        /* עיצוב קטן לקישורי היוטיוב בטבלה */
+        .shlifa-container table a:hover {
+            text-decoration: underline !important;
+            color: #ff4d4d !important;
+        }
     </style>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="shlifa-container">
-        <h2>מערכת שליפה וסינון פריטים </h2>
+        <h2>מערכת שליפה וסינון פריטים</h2>
         <br />
 
         <div class="search-box">
@@ -48,17 +53,15 @@
                 שם האומן:
                 <input type="text" name="artistName" id="artistName" placeholder="הכנס שם אומן..." />
                 
-       
-                
-           
-                
                 <input id="Submit1" type="submit" value="שלוף נתונים" class="btn-submit" />
             </form>
         </div>
 
         <br />
         <center>
-            <%= st %>
+            <div style="overflow-x:auto;">
+                <%= st %>
+            </div>
         </center>
     </div>
 </asp:Content>

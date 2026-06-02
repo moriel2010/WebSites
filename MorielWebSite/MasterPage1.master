@@ -50,7 +50,6 @@
     <a href="HomePage.aspx"><img src="Image/HomePage.png" class="main" /></a>
     <a href="odotPage.aspx"><img src="Image/odotPage.png"  class="main" /></a>
     <a href="galleryPage.aspx"><img src="Image/galleryPage.png" class="main" /></a>
-    <a href="informionPage.aspx"><img src="Image/informion.png" class="main" /></a>
 
     <a href="enrollmentPage.aspx" id="linkRegister" runat="server"><img src="Image/enrollmentPage.png" class="main" /></a>
     <a href="entryPage.aspx" id="linkLogin" runat="server"><img src="Image/entryPage.png" class="main" /></a>
@@ -58,7 +57,6 @@
     <a href="Kefel.aspx" id="linkKefel" runat="server">כפל</a>
     <a href="shlifaPage.aspx" id="linkShlifa" runat="server"><img src="Image/צצצצצ.png" class="main" /></a>
     <a href="AddPage.aspx" id="linkAdd" runat="server"><img src="Image/AddPage.png"  class="main" /></a>
-    <a href="UpdateDetailsPage.aspx" id="linkUpdate" runat="server"><img src="Image/UpdateDetailsPage.png" class="main" /></a>
 
     <a href="managementPage.aspx" id="linkAdmin" runat="server"><img src="Image/managementPage.png" class="main" /></a>
 

@@ -22,19 +22,15 @@ public partial class shlifaPage : System.Web.UI.Page
         if (IsPostBack)
         {
             string artistName = Request.Form["artistName"] != null ? Request.Form["artistName"].Trim() : "";
-           
 
             // שאילתת בסיס חכמה עם תנאי שתמיד נכון, כדי להוסיף עליו תנאים בהמשך
             string sql = "SELECT * FROM moriel WHERE 1=1";
 
-            // אם המשתמש רשם עיר - נוסיף סינון של עיר עם LIKE (חיפוש חלקי)
+            // אם המשתמש רשם שם אומן - נוסיף סינון עם LIKE (חיפוש חלקי)
             if (!string.IsNullOrEmpty(artistName))
             {
                 sql += " AND artistName LIKE N'%" + artistName + "%'";
             }
-
-           
-            
 
             // הפעלת השאילתה מול מסד הנתונים
             DataTable dt = MyAdoHelper.ExecuteDataTable(sql);
@@ -47,9 +43,9 @@ public partial class shlifaPage : System.Web.UI.Page
             else
             {
                 // בניית הטבלה המעוצבת ב-HTML דינמי
-                st += "<table border='1' style='color: white; background-color: rgba(0,0,0,0.6); width: 85%; text-align: center; border-collapse: collapse; font-size: 18px;'>";
+                st += "<table border='1' style='color: white; background-color: rgba(0,0,0,0.6); width: 95%; text-align: center; border-collapse: collapse; font-size: 18px; margin: auto;'>";
 
-                // שורת כותרות קבועה ויפה
+                // שורת כותרות קבועה ויפה (הוספנו כותרות לנגן וליטיוב)
                 st += "<tr style='background-color: #4a148c; color: #d4af37; font-weight: bold; height: 40px;'>";
                 st += "<td>גיל</td>";
                 st += "<td>שם אומן</td>";
@@ -58,20 +54,31 @@ public partial class shlifaPage : System.Web.UI.Page
                 st += "<td>פרסים ותארים</td>";
                 st += "<td>אלבומים שיצאו</td>";
                 st += "<td>השיר הכי מצליח</td>";
+                st += "<td>צפייה בקליפ</td>"; // עמודה חדשה 2
                 st += "<td>מידע נוסף</td>";
                 st += "</tr>";
 
                 // לולאה שרצה על כל השורות שחזרו מהדאטה-בייס ומציגה אותן
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    st += "<tr style='height: 35px;'>";
+                    string currentSong = dt.Rows[i]["best_song"].ToString();
+                    string currentArtist = dt.Rows[i]["artistName"].ToString();
+
+                    st += "<tr style='height: 45px;'>";
                     st += "<td>" + dt.Rows[i]["age"] + "</td>";
-                    st += "<td>" + dt.Rows[i]["artistName"] + "</td>";
+                    st += "<td>" + currentArtist + "</td>";
                     st += "<td>" + dt.Rows[i]["city"] + "</td>";
                     st += "<td>" + dt.Rows[i]["followers"] + "</td>";
                     st += "<td>" + dt.Rows[i]["awards"] + "</td>";
                     st += "<td>" + dt.Rows[i]["Albums"] + "</td>";
-                    st += "<td>" + dt.Rows[i]["best_song"] + "</td>";
+                    st += "<td>" + currentSong + "</td>";
+
+                   
+
+                    // שדרוג 4: קישור דינמי שמחפש ישירות ביוטיוב ופותח בלשונית חדשה
+                    string youtubeUrl = "https://www.youtube.com/results?search_query=" + HttpUtility.UrlEncode(currentArtist + " " + currentSong);
+                    st += "<td><a href='" + youtubeUrl + "' target='_blank' style='color: #ff0000; font-weight: bold; text-decoration: none;'>📺 צפה ב-YouTube</a></td>";
+
                     st += "<td>" + dt.Rows[i]["bio"] + "</td>";
                     st += "</tr>";
                 }

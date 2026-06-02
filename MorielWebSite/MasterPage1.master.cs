@@ -30,7 +30,6 @@ public partial class MasterPage1 : System.Web.UI.MasterPage
             linkKefel.Visible = false;
             linkShlifa.Visible = false;
             linkAdd.Visible = false;
-            linkUpdate.Visible = false;
             linkAdmin.Visible = false;
             linkExit.Visible = false;
         }
@@ -42,7 +41,6 @@ public partial class MasterPage1 : System.Web.UI.MasterPage
             linkKefel.Visible = true;
             linkShlifa.Visible = true;
             linkAdd.Visible = true;
-            linkUpdate.Visible = true;
             linkExit.Visible = true;
 
             linkAdmin.Visible = false;
@@ -55,7 +53,6 @@ public partial class MasterPage1 : System.Web.UI.MasterPage
             linkKefel.Visible = true;
             linkShlifa.Visible = true;
             linkAdd.Visible = true;
-            linkUpdate.Visible = true;
             linkExit.Visible = true;
             linkAdmin.Visible = true;
         }

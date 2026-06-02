@@ -11,7 +11,6 @@
             document.getElementById("awardsErr").innerHTML = "";
             document.getElementById("albumsErr").innerHTML = "";
             document.getElementById("songErr").innerHTML = "";
-            document.getElementById("bioErr").innerHTML = "";
 
 
             let isOK = true;
@@ -23,7 +22,6 @@
             let awards = document.getElementById("awards").value;
             let albums = document.getElementById("Albums").value;
             let bestSong = document.getElementById("best_song").value;
-            let bio = document.getElementById("bio").value;
 
 
             // בדיקת שם אמן
@@ -62,10 +60,7 @@
                 isOK = false;
             }
             // בדיקת ביוגרפיה
-            if (bio.trim() === "") {
-                document.getElementById("bioErr").innerHTML = "שדה ביוגרפיה הוא חובה";
-                isOK = false;
-            }
+           
 
 
             return isOK;
