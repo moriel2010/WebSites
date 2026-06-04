@@ -2,23 +2,30 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
     <script language="javascript">
+
+        // פונקציית הבדיקה הראשית - מופעלת בעת שליחת הטופס
         function checkAll() {
-            // איפוס שגיאות
+            // איפוס הודעות השגיאה של כל השדות לפני בדיקה חדשה
             document.getElementById("fnErr2").innerHTML = "";
             document.getElementById("emErr2").innerHTML = "";
             document.getElementById("phErr2").innerHTML = "";
+            document.getElementById("passErr2").innerHTML = "";
 
             let result = true;
 
+            // הרצת הבדיקות לכל שדה. אם אחת מהן נכשלת, משנים את התוצאה ל-false
             if (checkFirstName() == false) result = false;
             if (checkPhone() == false) result = false;
             if (checkEmail() == false) result = false;
+            if (checkPassword() == false) result = false; // הוספתי קריאה גם לבדיקת הסיסמה שכתבת
 
-            return result;
+            return result; // אם יחזור false, הטופס לא יישלח לשרת
         }
 
+        // פונקציה לבדיקת תקינות השם הפרטי
         function checkFirstName() {
             let firstname = document.getElementById("firstname").value;
+            // בדיקה האם השדה ריק
             if (firstname == "") {
                 document.getElementById("fnErr2").innerHTML = "שם פרטי לא יכול להיות ריק";
                 return false;
@@ -26,8 +33,10 @@
             return true;
         }
 
+        // פונקציה לבדיקת תקינות מספר הטלפון
         function checkPhone() {
             let phone = document.getElementById("phone").value;
+            // בדיקה האם השדה ריק
             if (phone == "") {
                 document.getElementById("phErr2").innerHTML = "טלפון לא יכול להיות ריק";
                 return false;
@@ -35,10 +44,33 @@
             return true;
         }
 
+        // פונקציה לבדיקת תקינות כתובת האימייל
         function checkEmail() {
             let email = document.getElementById("email").value;
+            // בדיקה האם השדה ריק
             if (email == "") {
                 document.getElementById("emErr2").innerHTML = "אימייל לא יכול להיות ריק";
+                return false;
+            }
+            // בדיקת תקינות אימייל - נוכחות @ ונקודה
+            if (email.indexOf('@') == -1 || email.indexOf('.') == -1) {
+                document.getElementById("emErr2").innerHTML = "אימייל אינו תקין (חובה לכלול @ ונקודה)";
+                return false;
+            }
+            return true;
+        }
+
+        // פונקציה לבדיקת תקינות הסיסמה (אורך מינימלי)
+        function checkPassword() {
+            let password = document.getElementById("password").value;
+            // בדיקה האם השדה ריק
+            if (password == "") {
+                document.getElementById("passErr2").innerHTML = "סיסמה לא יכול להיות ריק";
+                return false;
+            }
+            // בדיקה שהסיסמה מכילה לפחות 4 תווים
+            if (password.length < 4) {
+                document.getElementById("passErr2").innerHTML = "הסיסמה חייבת להיות באורך של 4 תווים לפחות";
                 return false;
             }
             return true;
@@ -48,23 +80,22 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <h2>enrollment</h2>
+    
     <form name="formPage" method="post" runat="server" onsubmit="return checkAll();">
+        
         שם פרטי: <input type="text" name="firstname" id="firstname" placeholder="example">
                 <span id="fnErr2" style="color: red;"></span>
-
         <br />
 
-         טלפון: <input type="tel" name="phone" id="phone" placeholder="example">
+        טלפון: <input type="tel" name="phone" id="phone" placeholder="example">
                 <span id="phErr2" style="color: red;"></span>
-
         <br />
 
-         אימייל: <input type="text" name="email" id="email" placeholder="example">
+        אימייל: <input type="text" name="email" id="email" placeholder="example">
                 <span id="emErr2" style="color: red;"></span>
-
         <br />
-
-         סיסמה: <input type="password" name="password" id="password" placeholder="example">
+        סיסמה: <input type="password" name="password" id="password" placeholder="example">
+                <span id="passErr2" style="color: red;"></span>
         <br />
         זמר אהוב: 
         <br />
@@ -79,9 +110,11 @@
         שני משוגעים<input type="radio" name="radio1"  value= "שני משוגעים " id="radio_2"><br />
         תבואי היום<input type="radio" name="radio1"  value= "תבואי היום "  id="radio_3"><br />
         דרך השלום<input type="radio"  name= "radio1" value="דרך השלום" id="radio_4"><br />
+        
         תשובה פתוחה:
         <textarea rows="5" cols="20" name="textarea1" id="textarea1" placeholder="הכנס מלל חופשי"></textarea>
         <br />
+        
         <select name="age" id="age">
             <option value="0">בחר גיל</option>
             <option value="15">15</option>
@@ -89,6 +122,7 @@
             <option value="17">17</option>      
         </select>
         <br />
+        
         <input id="Submit1" type="submit" value="שלח" />
     </form>
 
@@ -97,13 +131,6 @@
     </div>
 
     <br />
-    <%=name %> <br/>
-    <%= phone %> <br/>
-    <%=email %> <br/>
-    <%=password %> <br/>
-    <%= fav_singer %> <br/>
-    <%= fav_song %> <br />
-    <%= open_answer %> <br/>
-    <%=age %> <br />
-    <%=s %>
+    <%=name %> <br/>  <%= phone %> <br/>  <%=email %> <br/>   <%=password %> <br/>    <%= fav_singer %> <br/>  <%= fav_song %> <br />
+    <%= open_answer %> <br/>  <%=age %> <br /> <%=s %>
 </asp:Content>

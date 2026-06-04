@@ -38,7 +38,7 @@
 
         <div class="gallery-grid">
             <img src="Image/ספוטיפיי.jpg" />
-            <img src="Image/אפל.png" />
+            <img src="Image/songs.png" />
             <img src="Image/מצמ.jpg" />
             <img src="Image/9.jpg" />
             <img src="Image/3.jpg" />
