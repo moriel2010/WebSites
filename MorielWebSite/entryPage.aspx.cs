@@ -64,7 +64,7 @@ public partial class entryPage : System.Web.UI.Page
                     Session["userRole"] = "registered";
 
                     // שליפת השם מהעמודה הראשונה (אינדקס 0) בטבלה
-                    Session["userName"] = dt.Rows[0][0].ToString();
+                    Session["userName"] = dt.Rows[0][1].ToString();
 
                     Response.Redirect("HomePage.aspx");
                 }
