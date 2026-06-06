@@ -15,11 +15,7 @@
                     <td><input type="text" name="searchCity" placeholder="הכנס שם עיר..." /></td>
                 </tr>
                 <tr>
-                    <td>מינימום פרסים שקיבל:</td>
-                    <td><input type="number" name="searchMinAwards" placeholder="0" /></td>
-                </tr>
-                <tr>
-                    <td colspan="2" style="text-align: center; padding-top: 15px;">
+                                        <td colspan="2" style="text-align: center; padding-top: 15px;">
                         <input type="submit" value="חפש עכשיו" style="padding: 6px 20px; cursor: pointer;" />
                     </td>
                 </tr>

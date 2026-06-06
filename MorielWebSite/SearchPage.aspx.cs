@@ -24,10 +24,9 @@ public partial class SearchPage : System.Web.UI.Page
         {
             // קליטת הנתונים מהטופס וניקוי רווחים מיותרים
             string city = Request.Form["searchCity"] != null ? Request.Form["searchCity"].Trim() : "";
-            string minAwards = Request.Form["searchMinAwards"] != null ? Request.Form["searchMinAwards"].Trim() : "";
 
             // בניית שאילתת SQL דינמית ומורכבת עם תנאי בסיס תמיד נכון (1=1)
-            string sql = "SELECT * FROM morielAdd WHERE 1=1";
+            string sql = "SELECT * FROM moriel WHERE 1=1";
 
             // אם המשתמש רשם משהו בעיר - נוסיף חיפוש חלקי (LIKE) בעברית
             if (!string.IsNullOrEmpty(city))
@@ -36,10 +35,7 @@ public partial class SearchPage : System.Web.UI.Page
             }
 
             // אם המשתמש הציב רף מינימלי של פרסים - נוסיף סינון של "גדול או שווה" (>=)
-            if (!string.IsNullOrEmpty(minAwards))
-            {
-                sql += " AND awards >= " + minAwards;
-            }
+            
 
             // הרצת השאילתה מול בסיס הנתונים
             DataTable dt = MyAdoHelper.ExecuteDataTable(sql);
@@ -54,7 +50,7 @@ public partial class SearchPage : System.Web.UI.Page
                 // בניית טבלת התוצאות ב-HTML דינמי מעוצב
                 searchResult += "<table border='1' style='color: white; background-color: rgba(0,0,0,0.6); width: 85%; text-align: center; border-collapse: collapse; font-size: 18px;'>";
 
-                // כותרת הטבלה (מותאם בול לשדות של טבלת morielAdd)
+                // כותרת הטבלה (מותאם בול לשדות של טבלת moriel)
                 searchResult += "<tr style='background-color: #4a148c; color: #d4af37; font-weight: bold; height: 40px;'>";
                 searchResult += "<td>גיל</td>";
                 searchResult += "<td>עיר מוצא</td>";
