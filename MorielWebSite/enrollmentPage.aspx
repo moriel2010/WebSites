@@ -177,10 +177,6 @@
                 return false;
             }
             // בדיקה שזה מכיל רק ספרות ומקפים, ובאורך הגיוני (למשל בין 9 ל-11 תווים)
-            if (isNaN(phone.replace(/-/g, ""))) {
-                document.getElementById("phErr2").innerHTML = "מספר טלפון חייב להכיל ספרות בלבד";
-                return false;
-            }
             
             return true;
         }
