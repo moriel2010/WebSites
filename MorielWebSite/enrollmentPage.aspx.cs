@@ -41,7 +41,7 @@ public partial class enrollmentPage : System.Web.UI.Page
             else
             {
 
-                // הכנסת הנתונים לטבלת המשתמשים tUsers
+                // הכנסת הנתונים לטבלת המשתמשים 
                 string sqlInsert = "INSERT INTO mSong VALUES (" +
                     "N'" + name + "'," +
                     "N'" + phone + "'," +
