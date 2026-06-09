@@ -28,6 +28,8 @@ public partial class enrollmentPage : System.Web.UI.Page
             open_answer = Request.Form["textarea1"];
             age = Request.Form["age"];
 
+
+
             // בדיקה אם המייל כבר קיים בטבלת המשתמשים
             string sqlSelect = "SELECT * FROM mSong WHERE email = N'" + email + "'";
             bool userExists = MyAdoHelper.IsExist(sqlSelect);

@@ -5,40 +5,41 @@
         .shlifa-container {
             direction: rtl; 
             text-align: center; 
-            color: white; 
+            color: black; 
             padding: 20px;
         }
         .search-box {
-            background-color: rgba(0, 0, 0, 0.4);
+            /* השתמשתי ב-Gray (אפור) עם תוספת קטנה כדי לדמות שקיפות */
+            background-color: darkgray; 
             padding: 20px;
             border-radius: 10px;
             display: inline-block;
             margin-bottom: 20px;
-            border: 1px solid #d4af37;
+            border: 1px solid gold; /* שונה מ-#d4af37 */
         }
         .search-box input[type="text"] {
             padding: 5px;
             margin: 5px;
             border-radius: 5px;
-            border: 1px solid #ccc;
+            border: 1px solid silver; /* שונה מ-#ccc */
         }
         .btn-submit {
             padding: 6px 20px; 
-            background-color: #4a148c; 
-            color: white; 
-            border: 1px solid #d4af37; 
+            background-color: darkpurple; /* שונה מ-#4a148c (אפשר גם indigo או purple) */ 
+            color: black; 
+            border: 1px solid gold; /* שונה מ-#d4af37 */ 
             border-radius: 5px; 
             cursor: pointer;
             font-weight: bold;
         }
         .btn-submit:hover {
-            background-color: #d4af37;
+            background-color: gold; /* שונה מ-#d4af37 */
             color: black;
         }
         /* עיצוב קטן לקישורי היוטיוב בטבלה */
         .shlifa-container table a:hover {
             text-decoration: underline !important;
-            color: #ff4d4d !important;
+            color: crimson; /* שונה מ-#ff4d4d (אדום חזק, אפשר גם פשוט red) */ !important;
         }
     </style>
 </asp:Content>

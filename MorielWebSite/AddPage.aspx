@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage1.master" AutoEventWireup="true" CodeFile="AddPage.aspx.cs" Inherits="AddPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
+
     <script type="text/javascript">
         function checkAll() {
             // איפוס שגיאות
@@ -11,6 +12,8 @@
             document.getElementById("awardsErr").innerHTML = "";
             document.getElementById("albumsErr").innerHTML = "";
             document.getElementById("songErr").innerHTML = "";
+            document.getElementById("bioErr").innerHTML = "";
+
 
 
             let isOK = true;
@@ -22,6 +25,8 @@
             let awards = document.getElementById("awards").value;
             let albums = document.getElementById("Albums").value;
             let bestSong = document.getElementById("best_song").value;
+            let bio = document.getElementById("bio").value;
+
 
 
             // בדיקת שם אמן
@@ -60,14 +65,22 @@
                 isOK = false;
             }
             // בדיקת ביוגרפיה
-           
-
+            if (bio.trim() === "") {
+                document.getElementById("bioErr").innerHTML = "שדה ביוגרפיה הוא חובה";
+                isOK = false;
+            }
 
             return isOK;
         }
     </script>
     <style>
-        .error-msg { color: red; font-size: 14px; font-weight: bold; padding-right: 10px; }
+        .error-msg { color: tomato;
+font-size: 13px;
+display: block;
+margin-top: 5px;
+font-weight: bold;
+
+ }
     </style>
 </asp:Content>
 

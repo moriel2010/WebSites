@@ -10,7 +10,7 @@
         .gallery-page h2 {
             margin-bottom: 25px;
             font-size: 32px;
-            color: #1f2937;
+            color: black;
         }
 
         .gallery-grid {

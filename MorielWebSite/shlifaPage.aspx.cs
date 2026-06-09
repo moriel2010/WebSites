@@ -55,7 +55,7 @@ public partial class shlifaPage : System.Web.UI.Page
             st += "<td>עוקבים ברשתות</td>";
             st += "<td>פרסים ותארים</td>";
             st += "<td>אלבומים שיצאו</td>";
-            st += "<td>השיר הכי מצליח</td>";
+            st += "<td>השיר הכי טוב</td>";
             st += "<td>צפייה בקליפ</td>";
             st += "<td>מידע נוסף</td>";
             st += "</tr>";

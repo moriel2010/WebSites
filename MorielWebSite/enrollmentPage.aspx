@@ -7,10 +7,9 @@
             max-width: 500px;
             margin: 40px auto;
             padding: 30px;
-            background-color: #ffffff;
-            border: 2px solid #34495e; /* מסגרת כהה ויפה */
+            background-color: white;
+            border: 2px solid darkslategrey; /* מסגרת כהה ויפה */
             border-radius: 12px; /* פינות מעוגלות למסגרת */
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* צל שנותן נפח */
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             direction: rtl; /* יישור לימין עבור עברית */
             text-align: right;
@@ -19,12 +18,12 @@
         /* כותרת הטופס */
         .registration-box h2 {
             text-align: center;
-            color: #2c3e50;
+            color: midnightblue;
             margin-top: 0;
             margin-bottom: 25px;
             font-size: 26px;
             padding-bottom: 10px;
-            border-bottom: 3px solid #3498db; /* קו תחתון כחול מתחת לכותרת */
+            border-bottom: 3px solid darkblue; /* קו תחתון כחול מתחת לכותרת */
         }
 
         /* סגנון לשורות הטופס */
@@ -36,8 +35,8 @@
         .form-row label {
             display: block;
             font-weight: bold;
-            margin-bottom: 5px;
-            color: #34495e;
+            margin-bottom:  5px;
+            color: darkslategrey;
             font-size: 15px;
         }
 
@@ -45,25 +44,25 @@
         .input-field {
             width: 100%;
             padding: 10px 12px;
-            border: 1px solid #ccc;
+            border: 1px solid silver;
             border-radius: 6px;
             box-sizing: border-box;
             font-size: 15px;
-            background-color: #fdfdfd;
+            background-color: White;
             transition: all 0.3s ease;
         }
 
         /* אפקט בזמן לחיצה על שדה קלט */
         .input-field:focus {
-            border-color: #3498db;
+            border-color: dodgerblue;
             outline: none;
             box-shadow: 0 0 8px rgba(52, 152, 219, 0.4);
-            background-color: #ffffff;
+            background-color: white;
         }
 
         /* הודעות שגיאה אדומות ובולטות */
         .err-text {
-            color: #e74c3c;
+            color: tomato;
             font-size: 13px;
             display: block;
             margin-top: 5px;
@@ -72,19 +71,19 @@
 
         /* מסגרת פנימית מיוחדת לקבוצות הבחירה (רדיו וצ'קבוקס) */
         .selection-box {
-            border: 1px dashed #bdc3c7;
+            border: 1px dashed silver;
             padding: 15px;
             border-radius: 8px;
-            background-color: #fcfcfc;
+            background-color: White;
             margin-bottom: 20px;
         }
 
         .selection-box-title {
             font-weight: bold;
-            color: #2c3e50;
+            color: midnightblue;
             margin-bottom: 10px;
             display: block;
-            border-bottom: 1px solid #ecf0f1;
+            border-bottom: 1px solid silver;
             padding-bottom: 5px;
         }
 
@@ -106,7 +105,7 @@
         /* כפתור שליחה מעוצב וגדול */
         .submit-button {
             width: 100%;
-            background-color: #2ecc71; /* צבע ירוק מזמין */
+            background-color: limegreen; /* צבע ירוק מזמין */
             color: white;
             border: none;
             padding: 14px;
@@ -119,15 +118,15 @@
         }
 
         .submit-button:hover {
-            background-color: #27ae60; /* ירוק כהה יותר במעבר עכבר */
+            background-color: forestgreen; /* ירוק כהה יותר במעבר עכבר */
         }
 
         /* תיבת תצוגת נתונים מהשרת (דיבאג) */
         .debug-panel {
             margin-top: 25px;
             padding: 15px;
-            background-color: #eceff1;
-            border-right: 5px solid #607d8b;
+            background-color: aliceblue;
+            border-right: 5px solid white;
             border-radius: 4px;
             font-size: 14px;
             line-height: 1.6;
@@ -136,41 +135,58 @@
 
     <script language="javascript">
         function checkAll() {
+            // איפוס כל הודעות השגיאה לפני בדיקה חדשה
             document.getElementById("fnErr2").innerHTML = "";
             document.getElementById("emErr2").innerHTML = "";
             document.getElementById("phErr2").innerHTML = "";
             document.getElementById("passErr2").innerHTML = "";
+            document.getElementById("singerErr").innerHTML = "";
+            document.getElementById("songErr").innerHTML = "";
+            document.getElementById("textErr").innerHTML = "";
+            document.getElementById("ageErr").innerHTML = "";
 
             let result = true;
 
+            // הרצת הבדיקות ואיוש משתנה ה-result
             if (checkFirstName() == false) result = false;
             if (checkPhone() == false) result = false;
             if (checkEmail() == false) result = false;
             if (checkPassword() == false) result = false;
+            if (checkSinger() == false) result = false;
+            if (checkSong() == false) result = false;
+            if (checkComments() == false) result = false;
+            if (checkAge() == false) result = false;
 
             return result;
         }
 
         function checkFirstName() {
-            let firstname = document.getElementById("firstname").value;
+            let firstname = document.getElementById("firstname").value.trim();
             if (firstname == "") {
                 document.getElementById("fnErr2").innerHTML = "שם פרטי לא יכול להיות ריק";
                 return false;
             }
+            
             return true;
         }
 
         function checkPhone() {
-            let phone = document.getElementById("phone").value;
+            let phone = document.getElementById("phone").value.trim();
             if (phone == "") {
                 document.getElementById("phErr2").innerHTML = "טלפון לא יכול להיות ריק";
                 return false;
             }
+            // בדיקה שזה מכיל רק ספרות ומקפים, ובאורך הגיוני (למשל בין 9 ל-11 תווים)
+            if (isNaN(phone.replace(/-/g, ""))) {
+                document.getElementById("phErr2").innerHTML = "מספר טלפון חייב להכיל ספרות בלבד";
+                return false;
+            }
+            
             return true;
         }
 
         function checkEmail() {
-            let email = document.getElementById("email").value;
+            let email = document.getElementById("email").value.trim();
             if (email == "") {
                 document.getElementById("emErr2").innerHTML = "אימייל לא יכול להיות ריק";
                 return false;
@@ -185,7 +201,7 @@
         function checkPassword() {
             let password = document.getElementById("password").value;
             if (password == "") {
-                document.getElementById("passErr2").innerHTML = "סיסמה לא יכול להיות ריק";
+                document.getElementById("passErr2").innerHTML = "סיסמה לא יכולה להיות ריקה";
                 return false;
             }
             if (password.length < 4) {
@@ -194,8 +210,63 @@
             }
             return true;
         }
+
+        // בדיקה שנבחר זמר אחד לפחות (Checkbox)
+        function checkSinger() {
+            let checkboxes = document.getElementsByName("check2");
+            let checked = false;
+            for (let i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    checked = true;
+                    break;
+                }
+            }
+            if (!checked) {
+                document.getElementById("singerErr").innerHTML = "חובה לבחור לפחות זמר אחד";
+                return false;
+            }
+            return true;
+        }
+
+        // בדיקה שנבחר שיר (Radio Button)
+        function checkSong() {
+            let radios = document.getElementsByName("radio1");
+            let checked = false;
+            for (let i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    checked = true;
+                    break;
+                }
+            }
+            if (!checked) {
+                document.getElementById("songErr").innerHTML = "חובה לבחור שיר אהוב אחד";
+                return false;
+            }
+            return true;
+        }
+
+        // בדיקה לתיבת המלל החופשי
+        function checkComments() {
+            let textarea = document.getElementById("textarea1").value.trim();
+            if (textarea == "") {
+                document.getElementById("textErr").innerHTML = "נא לכתוב תגובה או מלל חופשי";
+                return false;
+            }
+            return true;
+        }
+
+        // בדיקה שנבחר גיל תקין מהרשימה (Select)
+        function checkAge() {
+            let ageSelect = document.getElementById("age").value;
+            if (ageSelect == "0") {
+                document.getElementById("ageErr").innerHTML = "חובה לבחור גיל מהרשימה";
+                return false;
+            }
+            return true;
+        }
     </script>
 </asp:Content>  
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="registration-box">
         <h2>טופס הרשמה לאתר</h2>
@@ -221,7 +292,7 @@
             </div>
 
             <div class="form-row">
-                <label for="password">סיסמה גישה:</label>
+                <label for="password">סיסמת גישה:</label>
                 <input type="password" name="password" id="password" class="input-field" placeholder="מינימום 4 תווים...">
                 <span id="passErr2" class="err-text"></span>
             </div>
@@ -232,6 +303,7 @@
                 <label class="option-label"><input type="checkbox" name="check2" value="עומר אדם" id="check_2"> עומר אדם</label>
                 <label class="option-label"><input type="checkbox" name="check2" value="אייל גולן" id="check_3"> אייל גולן</label>
                 <label class="option-label"><input type="checkbox" name="check2" value="פאר טסי" id="check_4"> פאר טסי</label>
+                <span id="singerErr" class="err-text"></span>
             </div>
 
             <div class="selection-box">
@@ -240,21 +312,24 @@
                 <label class="option-label"><input type="radio" name="radio1" value="שני משוגעים" id="radio_2"> שני משוגעים</label>
                 <label class="option-label"><input type="radio" name="radio1" value="תבואי היום" id="radio_3"> תבואי היום</label>
                 <label class="option-label"><input type="radio" name="radio1" value="דרך השלום" id="radio_4"> דרך השלום</label>
+                <span id="songErr" class="err-text"></span>
             </div>
             
             <div class="form-row">
                 <label for="textarea1">טקסט חופשי ותגובות:</label>
                 <textarea rows="4" class="input-field" name="textarea1" id="textarea1" placeholder="כתוב לנו משהו..."></textarea>
+                <span id="textErr" class="err-text"></span>
             </div>
             
             <div class="form-row">
                 <label for="age">מה הגיל שלך?</label>
                 <select name="age" id="age" class="input-field">
                     <option value="0">אנא בחר גיל מהרשימה</option>
-                    <option value="15">15</option>
-                    <option value="16">16</option>
-                    <option value="17">17</option>      
+                    <option value="0 - 15">0 - 15</option>
+                    <option value="16 - 50">16 - 50</option>
+                    <option value="50+">50+</option>      
                 </select>
+                <span id="ageErr" class="err-text"></span>
             </div>
             
             <input id="Submit1" type="submit" value="שלח טופס הרשמה" class="submit-button" />
